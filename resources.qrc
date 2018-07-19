@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/plugins/nmea2_qgis3" >
+        <file>icon.png</file>
+    </qresource>
+</RCC>
