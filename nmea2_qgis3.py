@@ -23,7 +23,8 @@
 """
 from PyQt5.QtCore import QSettings, QTranslator, qVersion, QCoreApplication
 from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QAction
+from PyQt5.QtWidgets import QAction, QFileDialog
+from qgis.core import *
 
 # Initialize Qt resources from file resources.py
 from .resources import *
@@ -159,7 +160,6 @@ class nmea2qgis3:
         self.actions.append(action)
 
         return action
-
     def initGui(self):
         """Create the menu entries and toolbar icons inside the QGIS GUI."""
 
@@ -170,7 +170,12 @@ class nmea2qgis3:
             callback=self.run,
             parent=self.iface.mainWindow())
 
-
+        self.dlg.pushButton.clicked.connect(self.openNmeaFile)
+# wszystkie funkcje nalezy dodawac do gui w tym miejscu self.nazwaFunkcji()
+    def openNmeaFile(self):
+        #open nmea file from file dialog
+        inFile=str(QFileDialog.getOpenFileName(caption="Open txtFile",
+                                               filter='txtFile(*.shp)'))
     def unload(self):
         """Removes the plugin menu item and icon from QGIS GUI."""
         for action in self.actions:

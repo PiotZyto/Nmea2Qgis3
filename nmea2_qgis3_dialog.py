@@ -26,112 +26,18 @@ import os
 
 from PyQt5 import uic
 from PyQt5 import QtWidgets
-from PyQt5 import QtCore, QtGui
 
 FORM_CLASS, _ = uic.loadUiType(os.path.join(
     os.path.dirname(__file__), 'nmea2_qgis3_dialog_base.ui'))
-#---------------------testowanie-----------------------
-try:
-    _fromUtf8 = QtCore.QString.fromUtf8
-except AttributeError:
-    def _fromUtf8(s):
-        return s
 
-try:
-    _encoding = QtGui.QApplication.UnicodeUTF8
-    def _translate(context, text, disambig):
-        return QtGui.QApplication.translate(context, text, disambig, _encoding)
-except AttributeError:
-    def _translate(context, text, disambig):
-        return QtGui.QApplication.translate(context, text, disambig)
 
 class nmea2qgis3Dialog(QtWidgets.QDialog, FORM_CLASS):
     def __init__(self, parent=None):
         """Constructor."""
-        super(nmea2_qgis3_dialog_base, self).__init__(parent)
+        super(nmea2qgis3Dialog, self).__init__(parent)
         # Set up the user interface from Designer.
         # After setupUI you can access any designer object by doing
         # self.<objectname>, and you can use autoconnect slots - see
         # http://qt-project.org/doc/qt-4.8/designer-using-a-ui-file.html
         # #widgets-and-dialogs-with-auto-connect
         self.setupUi(self)
-    #interface Gui aplikacji nmea2qgis3
-    def setupUi(self, nmea2_qgis3):
-        nmea2_qgis3.setObjectName(_fromUtf8("nmea2_qgis3"))
-        nmea2_qgis3.setEnabled(True)
-        nmea2_qgis3.resize(500, 75)
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(nmea2_qgis3.sizePolicy().hasHeightForWidth())
-        nmea2_qgis3.setSizePolicy(sizePolicy)
-        nmea2_qgis3.setMinimumSize(QtCore.QSize(500, 75))
-        nmea2_qgis3.setMaximumSize(QtCore.QSize(500, 75))
-        nmea2_qgis3.setMouseTracking(False)
-        nmea2_qgis3.setAutoFillBackground(False)
-        nmea2_qgis3.setSizeGripEnabled(False)
-        self.widget = QtGui.QWidget(nmea2_qgis3)
-        self.widget.setGeometry(QtCore.QRect(1, 10, 491, 61))
-        self.widget.setObjectName(_fromUtf8("widget"))
-        self.horizontalLayout_2 = QtGui.QHBoxLayout(self.widget)
-        self.horizontalLayout_2.setMargin(0)
-        self.horizontalLayout_2.setObjectName(_fromUtf8("horizontalLayout_2"))
-        self.verticalLayout_2 = QtGui.QVBoxLayout()
-        self.verticalLayout_2.setObjectName(_fromUtf8("verticalLayout_2"))
-        self.lineEdit = QtGui.QLineEdit(self.widget)
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.lineEdit.sizePolicy().hasHeightForWidth())
-        self.lineEdit.setSizePolicy(sizePolicy)
-        self.lineEdit.setObjectName(_fromUtf8("lineEdit"))
-        self.verticalLayout_2.addWidget(self.lineEdit)
-        self.horizontalLayout = QtGui.QHBoxLayout()
-        self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
-        self.addBut = QtGui.QPushButton(self.widget)
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.addBut.sizePolicy().hasHeightForWidth())
-        self.addBut.setSizePolicy(sizePolicy)
-        self.addBut.setObjectName(_fromUtf8("addBut"))
-        self.horizontalLayout.addWidget(self.addBut)
-        self.settBut = QtGui.QPushButton(self.widget)
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.settBut.sizePolicy().hasHeightForWidth())
-        self.settBut.setSizePolicy(sizePolicy)
-        self.settBut.setObjectName(_fromUtf8("settBut"))
-        self.horizontalLayout.addWidget(self.settBut)
-        self.verticalLayout_2.addLayout(self.horizontalLayout)
-        self.horizontalLayout_2.addLayout(self.verticalLayout_2)
-        self.verticalLayout = QtGui.QVBoxLayout()
-        self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
-        self.pushButton = QtGui.QPushButton(self.widget)
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
-        self.pushButton.setSizePolicy(sizePolicy)
-        self.pushButton.setObjectName(_fromUtf8("pushButton"))
-        self.verticalLayout.addWidget(self.pushButton)
-        self.ButExit = QtGui.QPushButton(self.widget)
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.ButExit.sizePolicy().hasHeightForWidth())
-        self.ButExit.setSizePolicy(sizePolicy)
-        self.ButExit.setObjectName(_fromUtf8("ButExit"))
-        self.verticalLayout.addWidget(self.ButExit)
-        self.horizontalLayout_2.addLayout(self.verticalLayout)
-
-        self.retranslateUi(nmea2_qgis3)
-        QtCore.QMetaObject.connectSlotsByName(nmea2_qgis3)
-
-    def retranslateUi(self, nmea2_qgis3):
-        nmea2_qgis3.setWindowTitle(_translate("nmea2_qgis3", "nmea2_qgis3", None))
-        self.addBut.setText(_translate("nmea2_qgis3", "addLayer", None))
-        self.settBut.setText(_translate("nmea2_qgis3", "NMEA sentences settings", None))
-        self.pushButton.setText(_translate("nmea2_qgis3", "Browse", None))
-        self.ButExit.setText(_translate("nmea2_qgis3", "cancel", None))
